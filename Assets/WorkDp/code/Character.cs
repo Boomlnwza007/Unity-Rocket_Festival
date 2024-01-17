@@ -50,7 +50,6 @@ public class Character : MonoBehaviour
     private bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
-        Collider2D[] ray = Physics2D.OverlapBoxAll(groundCheck.position, groundCheck.localScale, Quaternion.identity.x);
     }
 
     private void Flip()

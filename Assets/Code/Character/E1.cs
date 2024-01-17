@@ -105,14 +105,12 @@ public class E1 : UnitBase, IDamagable
             {
                 if (item.collider.tag == "Unit")
                 {
-                    Debug.Log("1");
                     Move = false;
                 }
                 else if (item.collider.tag == "Tower")
                 {
                     if (item.collider.GetComponent<Tower>().Thisteam != Thisteam)
                     {
-                        Debug.Log("5");
                         Move = false;
 
                     }
@@ -127,7 +125,6 @@ public class E1 : UnitBase, IDamagable
                 Move = true;
             }
         }
-        Debug.Log(Move);
     }
 
     private void OnDrawGizmos()
