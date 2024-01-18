@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player_core : MonoBehaviour
 {
+    public static int LV = 0;
     public static int Money = 20;
     public static int Money_Max = 100;
     public static float Cooldown = 0.2f;
@@ -26,6 +27,7 @@ public class Player_core : MonoBehaviour
     {
         Money_Max += 15;
         Cooldown /= 1.2f;
+        LV++;
     }
 
     public static void MinusMoney(int Num)

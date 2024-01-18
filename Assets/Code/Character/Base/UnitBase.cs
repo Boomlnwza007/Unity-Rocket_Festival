@@ -11,7 +11,8 @@ public enum Team
     Player, Enemy
 }
 public abstract class UnitBase : MonoBehaviour
-{  
+{
+    public Animator animetor;
     public TypeCharacter Type;
     public Team Thisteam;
     public float Hp = 2;

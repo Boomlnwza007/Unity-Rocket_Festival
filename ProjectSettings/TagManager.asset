@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Unit
   - Tower
+  - Arrow
   layers:
   - Default
   - TransparentFX

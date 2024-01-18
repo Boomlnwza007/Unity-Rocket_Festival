@@ -1246,6 +1246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce993cc0c0c2bfc4d90db835ad94aa02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animetor: {fileID: 6297722766903515331}
   Type: 2
   Thisteam: 1
   Hp: 2

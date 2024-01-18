@@ -92,6 +92,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6701576663463164188, guid: 97b20f97f2c627642b649559a59fed18, type: 3}
+      propertyPath: animetor
+      value: 
+      objectReference: {fileID: 7665491359160423793}
     - target: {fileID: 7464738030545173532, guid: 97b20f97f2c627642b649559a59fed18, type: 3}
       propertyPath: m_Name
       value: Malee_Enemy
@@ -173,3 +177,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &7665491359160423793 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5423232342017981817, guid: 97b20f97f2c627642b649559a59fed18, type: 3}
+  m_PrefabInstance: {fileID: 2387605803209156616}
+  m_PrefabAsset: {fileID: 0}
