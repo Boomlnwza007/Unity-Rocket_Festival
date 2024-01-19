@@ -24,6 +24,18 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2656461414143875971, guid: 97b20f97f2c627642b649559a59fed18, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2656461414143875971, guid: 97b20f97f2c627642b649559a59fed18, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3391048511199569915, guid: 97b20f97f2c627642b649559a59fed18, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 3391048511199569915, guid: 97b20f97f2c627642b649559a59fed18, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.669631
@@ -90,6 +102,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6422554303634370485, guid: 97b20f97f2c627642b649559a59fed18, type: 3}
       propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6701576663463164188, guid: 97b20f97f2c627642b649559a59fed18, type: 3}
+      propertyPath: Thisteam
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6701576663463164188, guid: 97b20f97f2c627642b649559a59fed18, type: 3}
