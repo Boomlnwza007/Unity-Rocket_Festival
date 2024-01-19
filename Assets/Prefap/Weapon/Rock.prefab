@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3863070106230810385}
   - component: {fileID: 4871815799613044781}
   m_Layer: 0
-  m_Name: arrow
+  m_Name: Rock
   m_TagString: Arrow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
   rb: {fileID: 3863070106230810385}
   Target: {fileID: 0}
   speed: 1.5
-  Thisteam: 1
+  Thisteam: 0
   Dmg: 2
 --- !u!50 &3863070106230810385
 Rigidbody2D:

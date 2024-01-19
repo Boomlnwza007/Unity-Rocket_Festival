@@ -182,8 +182,16 @@ public class R1 : UnitBase , IDamagable , ITeam
     {
         if (collision.gameObject.tag == "Arrow")
         {
-            collision.gameObject.GetComponent<Arrow>().SetTarget(target.transform);
-            collision.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            if (Move)
+            {
+                collision.gameObject.GetComponent<Arrow>().SetTarget(target.transform);
+            }
+            else
+            {
+                collision.gameObject.GetComponent<Arrow>().SetTarget(target.transform);
+                collision.gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            }
+            
         }
     }
 

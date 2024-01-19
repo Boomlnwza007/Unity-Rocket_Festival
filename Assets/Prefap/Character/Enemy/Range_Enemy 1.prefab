@@ -1223,7 +1223,7 @@ GameObject:
   - component: {fileID: 7487094622728001610}
   - component: {fileID: 299493224485031197}
   m_Layer: 0
-  m_Name: Range_Enemy
+  m_Name: Range_Enemy 1
   m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1319,36 +1319,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.3294516, y: 2.5286584}
   m_EdgeRadius: 0
-<<<<<<< HEAD:Assets/Prefap/Character/Enemy/Range_Enemy.prefab
---- !u!114 &7088765332624425012
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6952766635200912251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce993cc0c0c2bfc4d90db835ad94aa02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animetor: {fileID: 7487094622728001610}
-  Type: 0
-  Thisteam: 1
-  Hp: 2
-  Dmg: 2
-  CcDmg: 2
-  SpMove: 5
-  CcSpawn: 3
-  Cost: 30
-  rb: {fileID: 0}
-  distanceAttack: 2.5
-  attacking: 0
-  Move: 1
-  hpbar: {fileID: 4517094647106940458}
-  ray: {fileID: 0}
-=======
->>>>>>> c7786876bf7e9b575ce2282dd598a9ae06f4d67f:Assets/Prefap/Character/Range_Enemy.prefab
 --- !u!95 &7487094622728001610
 Animator:
   serializedVersion: 5

@@ -382,7 +382,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: e75287f923959e74e9219ce1f3f11014, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -739,7 +739,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 83e5fc27702aa814abbae8c690ff13ea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1128,6 +1128,7 @@ GameObject:
   - component: {fileID: 6087436559261976602}
   - component: {fileID: 795349899839084344}
   - component: {fileID: 7800491796110054602}
+  - component: {fileID: 7514874002113475045}
   m_Layer: 0
   m_Name: Tank_Player
   m_TagString: Untagged
@@ -1245,6 +1246,33 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.7652817, y: 3.522595}
   m_EdgeRadius: 0
+--- !u!114 &7514874002113475045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7984137814484911173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce993cc0c0c2bfc4d90db835ad94aa02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animetor: {fileID: 6087436559261976602}
+  Type: 2
+  Thisteam: 0
+  Hp: 20
+  Dmg: 4
+  CcDmg: 4
+  SpMove: 5
+  CcSpawn: 3
+  Cost: 120
+  rb: {fileID: 0}
+  distanceAttack: 2.5
+  attacking: 0
+  Move: 1
+  hpbar: {fileID: 1421152711664488900}
+  ray: {fileID: 6821747702481260248}
 --- !u!1 &9169130475047017282
 GameObject:
   m_ObjectHideFlags: 0

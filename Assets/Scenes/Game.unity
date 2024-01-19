@@ -1727,9 +1727,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnP: {fileID: 857484252}
-  CharacterMalee: {fileID: 5096501805065376788, guid: 42b30d1bc363bca42bc65a4ab5efd923, type: 3}
-  CharacterRang: {fileID: 6952766635200912251, guid: 531be4b20fc831e41a522015ae6eb78a, type: 3}
-  CharacterTank: {fileID: 8034503363857039806, guid: 4bc22974579113a468fe52495254ada5, type: 3}
+  CharacterMalee: {fileID: 5096501805065376788, guid: f0d1a42e91586c845ab9142aa32b8307, type: 3}
+  CharacterRang: {fileID: 6952766635200912251, guid: 7ea89422eacb49943b0a0b9bbe1e5acf, type: 3}
+  CharacterTank: {fileID: 8034503363857039806, guid: 4919bcb044e22054fa350076119d7e55, type: 3}
   Spawn: 1
 --- !u!1 &651719164
 GameObject:
@@ -2558,7 +2558,7 @@ MonoBehaviour:
   Cost: 50
   CoolDown: {fileID: 258675072}
   button: {fileID: 1034178535}
-  Character: {fileID: 6844210924489951004, guid: 1552becc177455840b81c18f1a775de0, type: 3}
+  Character: {fileID: 7984137814484911173, guid: db4fc028d40516c46a27568bbabcf57d, type: 3}
   spawnP: {fileID: 342788651}
   text: {fileID: 1568387517}
 --- !u!114 &1034178535
@@ -4306,7 +4306,7 @@ MonoBehaviour:
   Cost: 50
   CoolDown: {fileID: 1886881372}
   button: {fileID: 1866837280}
-  Character: {fileID: 6844210924489951004, guid: 56f51db835067d443ae8d3531b96d6df, type: 3}
+  Character: {fileID: 2233376409104956796, guid: c2288d11432f044429520b6e2617e1ba, type: 3}
   spawnP: {fileID: 342788651}
   text: {fileID: 1887508360}
 --- !u!114 &1866837280
