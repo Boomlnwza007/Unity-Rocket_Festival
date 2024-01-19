@@ -7,13 +7,15 @@ public class R1 : UnitBase , IDamagable , ITeam
     Vector2 dir;
     [SerializeField] Rigidbody2D rb;
     public float distanceAttack = 2.5f;
-    private bool attacking = false;
+    [SerializeField] private bool attacking = false;
     private bool attack = false;
-    private bool Move = true;
+    [SerializeField] private bool Move = true;
     public HPBar hpbar;
     [SerializeField] private GameObject arrow;
     [SerializeField] private Transform pointArrow;
     private GameObject target;
+    [SerializeField] private Transform ray;
+
 
     private void Awake()
     {
@@ -21,18 +23,22 @@ public class R1 : UnitBase , IDamagable , ITeam
         rb = gameObject.GetComponent<Rigidbody2D>();
         if (Thisteam == Team.Player)
         {
-            dir = Vector2.left;
+            dir = Vector2.right;
         }
         else
         {
-            dir = Vector2.right;
+            dir = Vector2.left;
         }
+    }
+    private void Update()
+    {
+        Dead();       
+        
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        Dead();
         LineSet();
         Attack();
         if (Move)
@@ -42,12 +48,11 @@ public class R1 : UnitBase , IDamagable , ITeam
                 move();
             }
         }
-
         else
         {
             rb.velocity = Vector2.zero;
         }
-
+        AnimeControl();
     }
 
     public void move()
@@ -57,7 +62,7 @@ public class R1 : UnitBase , IDamagable , ITeam
 
     public void Attack()
     {
-        RaycastHit2D[] Enemy = Physics2D.RaycastAll(this.transform.position, dir, distanceAttack);
+        RaycastHit2D[] Enemy = Physics2D.RaycastAll(ray.transform.position, dir, distanceAttack);
         foreach (var item in Enemy)
         {
 
@@ -65,7 +70,7 @@ public class R1 : UnitBase , IDamagable , ITeam
             {
                 if (item.collider.tag == "Unit")
                 {
-                    if (!item.collider.GetComponent<ITeam>().CTeam(Thisteam))
+                    if (Thisteam != item.collider.GetComponent<ITeam>().CTeam())
                     {
                         attacking = true;
                         StartCoroutine(Attack(item));
@@ -101,7 +106,7 @@ public class R1 : UnitBase , IDamagable , ITeam
 
     public void LineSet()
     {
-        RaycastHit2D[] Enemy = Physics2D.RaycastAll(this.transform.position, dir, 2.2f);
+        RaycastHit2D[] Enemy = Physics2D.RaycastAll(ray.transform.position, dir, 2.5f);
         foreach (var item in Enemy)
         {
             if (item.collider != gameObject.GetComponent<Collider2D>())
@@ -123,6 +128,10 @@ public class R1 : UnitBase , IDamagable , ITeam
                     }
                 }
             }
+            else if (item.collider == null)
+            {
+                Move = true;
+            }
             else
             {
                 Move = true;
@@ -133,7 +142,7 @@ public class R1 : UnitBase , IDamagable , ITeam
     private void OnDrawGizmos()
     {
         Vector3 vector3 = new Vector3(dir.x, dir.y, 0);
-        Gizmos.DrawLine(this.transform.position, this.transform.position + vector3 * distanceAttack);
+        Gizmos.DrawLine(ray.transform.position, ray.transform.position + vector3 * distanceAttack);
     }
 
 
@@ -143,10 +152,12 @@ public class R1 : UnitBase , IDamagable , ITeam
         {
             //Debug.Log(G.collider.name);
             attack = true;
-            yield return new WaitForSeconds(0.7f);
-            Instantiate(arrow, pointArrow.position, Quaternion.identity);
+            animetor.SetBool("Attack", true);
+            yield return new WaitForSeconds(0.7f);            
+            Instantiate(arrow, pointArrow.position, Quaternion.identity);            
             target = G.collider.gameObject;
-            yield return new WaitForSeconds(CcDmg);
+            animetor.SetBool("Attack", false);
+            yield return new WaitForSeconds(CcDmg);            
             attack = false;
         }
 
@@ -179,13 +190,39 @@ public class R1 : UnitBase , IDamagable , ITeam
         }
     }
 
-    public bool CTeam(Team team)
+
+
+    public void AnimeControl()
     {
-        bool y = false;
-        if (team == Thisteam)
+        if (Move)
         {
-            y = true;
+            if (!attacking)
+            {
+                animetor.SetBool("Walk", true);
+            }
+            else
+            {
+                animetor.SetBool("Walk", false);
+            }
         }
-        return y;
+        else
+        {
+            animetor.SetBool("Walk", false);
+        }
+
+        if (Move)
+        {
+            animetor.SetBool("Melee", false);
+        }
+        else
+        {
+
+            animetor.SetBool("Melee", true);
+        }
+    }
+
+    public Team CTeam()
+    {
+        return Thisteam;
     }
 }

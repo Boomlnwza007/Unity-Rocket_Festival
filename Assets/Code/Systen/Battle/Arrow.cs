@@ -75,9 +75,10 @@ public class Arrow : MonoBehaviour
     {
         if (collision.gameObject.tag == "Unit")
         {
-            if (!collision.gameObject.GetComponent<ITeam>().CTeam(Thisteam))
+            if (Thisteam!=collision.gameObject.GetComponent<ITeam>().CTeam())
             {
                 collision.gameObject.GetComponent<IDamagable>().Damage(Dmg);
+                Destroy(gameObject);
             }
         }
     }

@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface ITeam
 {
-    bool CTeam(Team team);
+    Team CTeam();
 }
