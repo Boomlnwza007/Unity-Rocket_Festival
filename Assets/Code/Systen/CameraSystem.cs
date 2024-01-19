@@ -30,7 +30,7 @@ public class CameraSystem : MonoBehaviour
         {
             DragMoveCam = false;
         }
-        Debug.Log(DragMoveCam);
+
     
     }
 

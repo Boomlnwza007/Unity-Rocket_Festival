@@ -15,6 +15,7 @@ public class R1 : UnitBase , IDamagable , ITeam
     [SerializeField] private Transform pointArrow;
     private GameObject target;
     [SerializeField] private Transform ray;
+    bool isDead = false;
 
 
     private void Awake()
@@ -32,13 +33,21 @@ public class R1 : UnitBase , IDamagable , ITeam
     }
     private void Update()
     {
-        Dead();       
+        if (!isDead)
+        {
+            Dead();
+        }       
         
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (Hp <= 0)
+        {
+            rb.velocity = Vector2.zero;
+            return;
+        }
         LineSet();
         Attack();
         if (Move)
@@ -174,6 +183,7 @@ public class R1 : UnitBase , IDamagable , ITeam
         if (collision.gameObject.tag == "Arrow")
         {
             collision.gameObject.GetComponent<Arrow>().SetTarget(target.transform);
+            collision.gameObject.GetComponent<SpriteRenderer>().enabled = false;
         }
     }
 
@@ -181,13 +191,23 @@ public class R1 : UnitBase , IDamagable , ITeam
     {
         if (Hp <= 0)
         {
-            Destroy(gameObject);
+            isDead = true;
+            gameObject.GetComponent<Collider2D>().isTrigger = true;
+            rb.gravityScale = 0;
+            animetor.SetTrigger("Dead");
             if (Thisteam == Team.Enemy)
             {
                 Player_core.Money += Random.Range(10, 15);
                 Player_core.Money = Mathf.Clamp(Player_core.Money, 0, Player_core.Money_Max);
             }
+            StartCoroutine(deadAnime());
         }
+    }
+
+    IEnumerator deadAnime()
+    {
+        yield return new WaitForSeconds(2);
+        Destroy(gameObject);
     }
 
 
