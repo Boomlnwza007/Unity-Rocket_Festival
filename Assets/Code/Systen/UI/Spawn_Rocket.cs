@@ -6,51 +6,82 @@ using UnityEngine.UI;
 
 public class Spawn_Rocket : MonoBehaviour
 {
+    public Team Thisteam;
     public TMP_Text TMP_Text;
     public int Cost = 50;
     public Slider CoolDown;
     [SerializeField] Button button;
     public float CcUpRock = 60;
 
-    private GameObject Rockget;
-    public static Transform Start_point;
-    public Transform End_point;
-    public Vector2 dir_point;
-    public static Transform[] Target;
-    public static int ID = 0;
-    public Team Thisteam;
-    private float distan;
+    public GameObject Rockget;
+    public Transform FireStart_point1;
+    public Transform Start_point;
+    public Transform centermap_point;
+    public static Transform End_point;   
+    public static float distan;
+    private void Awake()
+    {
+        CoolDown.maxValue = CcUpRock;
+        CoolDown.value = CoolDown.maxValue;
+        TMP_Text.text = "Rockget" + "\n" + "Cost : " + Cost;
+    }
     // Start is called before the first frame update
     void Start()
     {
-        float X = Mathf.Abs(Start_point.position.x - End_point.position.x);
-        X /= 2;
-        dir_point = Start_point.position - End_point.position;
-        dir_point = dir_point.normalized;
-        distan = X;
+        End_point = FireStart_point1;
+        distan = Vector2.Distance(FireStart_point1.position, centermap_point.position);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        ButtomOnOFf();
     }
 
     public void fire()
     {
-        ID = 0;
-        RaycastHit2D[] tar = Physics2D.RaycastAll(Start_point.position, dir_point, distan);
+        CoolDown.value = CoolDown.maxValue;
+        StartCoroutine(FireRockket());
+
+
+    }
+
+    IEnumerator FireRockket()
+    {
+        for (int i = 0; i < 20; i++)
+        {
+            yield return new WaitForSeconds(0.2f);
+            Instantiate(Rockget, End_point.transform.position, Quaternion.identity);
+        }
+        yield return new WaitForSeconds(10f);
+        Collider2D[] tar = Physics2D.OverlapBoxAll(Start_point.position, new Vector2(25, 4), Quaternion.identity.x);
         foreach (var item in tar)
         {
-            if (item.collider.tag == "Unit")
+            if (item.gameObject.tag == "Unit")
             {
-                if (Thisteam != item.collider.GetComponent<ITeam>().CTeam())
+                if (Thisteam != item.GetComponent<ITeam>().CTeam())
                 {
-                    Target[ID] = item.transform;
-                    Instantiate(Rockget, Start_point);
-                    ID++;
+                    item.GetComponent<IDamagable>().Damage(100);
                 }
             }
         }
+
+    }
+
+    public void ButtomOnOFf()
+    {
+        if (CoolDown.value != 0)
+        {
+            CoolDown.value -= Time.deltaTime;
+            button.enabled = false;
+        }
+        else if (CoolDown.value <= 0)
+        {
+            button.enabled = true;
+        }
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireCube(Start_point.position, new Vector2(25, 4));
     }
 }

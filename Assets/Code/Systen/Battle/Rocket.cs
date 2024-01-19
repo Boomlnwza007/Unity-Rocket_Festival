@@ -5,21 +5,22 @@ using UnityEngine;
 public class Rocket : MonoBehaviour
 {
     public Rigidbody2D rb;
-    Team Thisteam;
-    public Transform target;
+    public Team Thisteam;
+    public Vector3 target;
     private bool startAim = false;
-    public int ID;
     private void Start()
     {
-        ID = Spawn_Rocket.ID;
-        target = Spawn_Rocket.Target[ID];
-        rb.velocity = Vector2.up * 20;
+        target = Spawn_Rocket.End_point.position;
+        float distan = Spawn_Rocket.distan;
+        float a = Random.Range(10,distan);
+        target.x = target.x+a;
+        rb.velocity = transform.up * 40;
         StartCoroutine(De());
     }
     
     IEnumerator De()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
         startAim = true;
     }
     private void FixedUpdate()
@@ -32,21 +33,34 @@ public class Rocket : MonoBehaviour
 
     public void Aim()
     {
-        Vector3 vectorToTarget = target.transform.position - transform.position;
+        rb.velocity = transform.up * 20;
+        if (transform.position.y < 0)
+        {
+            return;
+        }
+        Vector3 vectorToTarget = target - transform.position;
         float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg - 90;
         Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
-        transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * 0.1f);
+        transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * 5f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.name == "Land")
+        {
+
+                Destroy(gameObject);
+            
+        }
         if (collision.gameObject.tag == "Unit")
         {
-            if (Thisteam != collision.gameObject.GetComponent<ITeam>().CTeam())
+            if (collision.gameObject.GetComponent<ITeam>().CTeam()!=Thisteam)
             {
-                Destroy(collision.gameObject);
+                collision.gameObject.GetComponent<IDamagable>().Damage(100);
                 Destroy(gameObject);
             }
+            
+
         }
     }
 }

@@ -9,28 +9,28 @@ public class Enemy_spawn : MonoBehaviour
     public GameObject CharacterRang;
     public GameObject CharacterTank;
     public bool Spawn = true;
-    private bool Demo = true;
+    //private bool Demo = true;
     private float dif = 0;
 
     // Update is called once per frame
     void Update()
     {
         dif += Time.deltaTime;
-        if (Demo)
-        {
-            StartCoroutine(tutorial());
-        }
+        //if (Demo)
+        //{
+        //    StartCoroutine(tutorial());
+        //}
         if (Spawn)
         {
-            if (dif>120||Player_core.LV>2)
+            if (dif<180)
             {
                 StartCoroutine(spawnST1());
             }
-            else if (dif > 360 || Player_core.LV > 4)
+            else if (dif > 180 || Player_core.LV > 4)
             {
                 StartCoroutine(spawnST2());
             }
-            else if (dif > 480 || Player_core.LV > 5)
+            else if (dif > 360 || Player_core.LV > 5)
             {
                 StartCoroutine(spawnST3());
             }
@@ -47,7 +47,7 @@ public class Enemy_spawn : MonoBehaviour
             yield return new WaitForSeconds(8);
             Instantiate(CharacterMalee, spawnP.position, spawnP.rotation);
         }
-        Demo = false;
+        //Demo = false;
     }
 
     IEnumerator spawnST1()

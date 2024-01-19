@@ -1247,7 +1247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animetor: {fileID: 6297722766903515331}
-  Type: 0
+  Type: 2
   Thisteam: 1
   Hp: 20
   Dmg: 3
@@ -1260,11 +1260,7 @@ MonoBehaviour:
   attacking: 0
   Move: 1
   hpbar: {fileID: 60418173206755444}
-<<<<<<< HEAD:Assets/Prefap/Character/Enemy/Tank_Enemy.prefab
-  ray: {fileID: 0}
-=======
   ray: {fileID: 7544270233851984249}
->>>>>>> c7786876bf7e9b575ce2282dd598a9ae06f4d67f:Assets/Prefap/Character/Tank_Enemy.prefab
 --- !u!95 &6297722766903515331
 Animator:
   serializedVersion: 5

@@ -12,6 +12,7 @@ public class E1 : UnitBase, IDamagable , ITeam
     [SerializeField] private bool Move = true;
     public HPBar hpbar;
     [SerializeField]private Transform ray;
+    bool isDead = false;
 
     private void Awake()
     {
@@ -28,13 +29,20 @@ public class E1 : UnitBase, IDamagable , ITeam
     }
     private void Update()
     {
-
-        Dead();
+        if (!isDead)
+        {
+            Dead();
+        }
+        
     }
     // Update is called once per frame
     void FixedUpdate()
     {
-        
+        if (Hp<=0)
+        {
+            rb.velocity = Vector2.zero;
+            return;
+        }
         LineSet();
         Attack();
         if (Move)
@@ -165,15 +173,23 @@ public class E1 : UnitBase, IDamagable , ITeam
     {
         if (Hp <= 0)
         {
-            Destroy(gameObject);
+            isDead = true;
+            gameObject.GetComponent<Collider2D>().isTrigger = true;
+            rb.gravityScale = 0;
+            animetor.SetTrigger("Dead");
             if (Thisteam == Team.Enemy)
             {
                 Player_core.Money += Random.Range(10,15);
                 Player_core.Money = Mathf.Clamp(Player_core.Money,0,Player_core.Money_Max);
             }
+            StartCoroutine(deadAnime());
         }
     }
-
+    IEnumerator deadAnime()
+    {
+        yield return new WaitForSeconds(3);
+        Destroy(gameObject);
+    }
 
 
     public void AnimeControl()
