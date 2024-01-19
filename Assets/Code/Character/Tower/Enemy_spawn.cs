@@ -9,12 +9,17 @@ public class Enemy_spawn : MonoBehaviour
     public GameObject CharacterRang;
     public GameObject CharacterTank;
     public bool Spawn = true;
+    private bool Demo = true;
     private float dif = 0;
 
     // Update is called once per frame
     void Update()
     {
         dif += Time.deltaTime;
+        if (Demo)
+        {
+            StartCoroutine(tutorial());
+        }
         if (Spawn)
         {
             if (dif>120||Player_core.LV>2)
@@ -29,10 +34,20 @@ public class Enemy_spawn : MonoBehaviour
             {
                 StartCoroutine(spawnST3());
             }
+
             
         }
-        
 
+
+    }
+    IEnumerator tutorial()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            yield return new WaitForSeconds(8);
+            Instantiate(CharacterMalee, spawnP.position, spawnP.rotation);
+        }
+        Demo = false;
     }
 
     IEnumerator spawnST1()

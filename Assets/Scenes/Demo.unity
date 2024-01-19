@@ -203,6 +203,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 577594699}
   m_SourcePrefab: {fileID: 100100000, guid: 531be4b20fc831e41a522015ae6eb78a, type: 3}
+--- !u!4 &315764735 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6585648103994801077, guid: 42b30d1bc363bca42bc65a4ab5efd923, type: 3}
+  m_PrefabInstance: {fileID: 816416156}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &577594698 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6952766635200912251, guid: 531be4b20fc831e41a522015ae6eb78a, type: 3}
@@ -223,14 +228,14 @@ MonoBehaviour:
   animetor: {fileID: 577594700}
   Type: 0
   Thisteam: 1
-  Hp: 2
+  Hp: 50
   Dmg: 2
   CcDmg: 2
   SpMove: 5
   CcSpawn: 3
   Cost: 30
   rb: {fileID: 577594702}
-  distanceAttack: 2.5
+  distanceAttack: 7
   attacking: 0
   Move: 1
   hpbar: {fileID: 1757549294}
@@ -318,9 +323,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8944908261702078740, guid: 42b30d1bc363bca42bc65a4ab5efd923, type: 3}
+      propertyPath: Hp
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8944908261702078740, guid: 42b30d1bc363bca42bc65a4ab5efd923, type: 3}
       propertyPath: ray
       value: 
-      objectReference: {fileID: 816382788}
+      objectReference: {fileID: 315764735}
     - target: {fileID: 8944908261702078740, guid: 42b30d1bc363bca42bc65a4ab5efd923, type: 3}
       propertyPath: Thisteam
       value: 0
