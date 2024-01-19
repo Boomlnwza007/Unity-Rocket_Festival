@@ -582,9 +582,10 @@ GameObject:
   - component: {fileID: 3028254991883299918}
   - component: {fileID: 4311707418180425208}
   - component: {fileID: 1569466415327824166}
+  - component: {fileID: 8805016310319929836}
   m_Layer: 0
   m_Name: Malee_Player
-  m_TagString: Untagged
+  m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -699,6 +700,33 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8805016310319929836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5342999158897701225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce993cc0c0c2bfc4d90db835ad94aa02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animetor: {fileID: 1569466415327824166}
+  Type: 0
+  Thisteam: 0
+  Hp: 2
+  Dmg: 2
+  CcDmg: 2
+  SpMove: 5
+  CcSpawn: 1.5
+  Cost: 25
+  rb: {fileID: 3028254991883299918}
+  distanceAttack: 2.5
+  attacking: 0
+  Move: 1
+  hpbar: {fileID: 6806765693123438220}
+  ray: {fileID: 444867940266810684}
 --- !u!1 &5390591224540260599
 GameObject:
   m_ObjectHideFlags: 0

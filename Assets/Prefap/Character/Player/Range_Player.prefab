@@ -408,7 +408,7 @@ GameObject:
   - component: {fileID: 1222861714554193279}
   m_Layer: 0
   m_Name: Range_Player
-  m_TagString: Untagged
+  m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -543,9 +543,9 @@ MonoBehaviour:
   Dmg: 2
   CcDmg: 2
   SpMove: 5
-  CcSpawn: 3
+  CcSpawn: 6
   Cost: 25
-  rb: {fileID: 0}
+  rb: {fileID: 7299641292090730738}
   distanceAttack: 7
   attacking: 0
   Move: 1

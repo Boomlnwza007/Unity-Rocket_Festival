@@ -1131,7 +1131,7 @@ GameObject:
   - component: {fileID: 7514874002113475045}
   m_Layer: 0
   m_Name: Tank_Player
-  m_TagString: Untagged
+  m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1265,9 +1265,9 @@ MonoBehaviour:
   Dmg: 4
   CcDmg: 4
   SpMove: 5
-  CcSpawn: 3
+  CcSpawn: 7
   Cost: 120
-  rb: {fileID: 0}
+  rb: {fileID: 795349899839084344}
   distanceAttack: 2.5
   attacking: 0
   Move: 1
