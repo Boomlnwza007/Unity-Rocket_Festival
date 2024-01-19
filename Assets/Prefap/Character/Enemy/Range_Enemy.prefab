@@ -1300,7 +1300,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animetor: {fileID: 7487094622728001610}
-  Type: 1
+  Type: 0
   Thisteam: 1
   Hp: 2
   Dmg: 2
@@ -1310,7 +1310,10 @@ MonoBehaviour:
   Cost: 30
   rb: {fileID: 0}
   distanceAttack: 2.5
+  attacking: 0
+  Move: 1
   hpbar: {fileID: 4517094647106940458}
+  ray: {fileID: 0}
 --- !u!95 &7487094622728001610
 Animator:
   serializedVersion: 5
