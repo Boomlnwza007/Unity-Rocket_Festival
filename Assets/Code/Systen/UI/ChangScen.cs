@@ -19,4 +19,5 @@ public class ChangScen : MonoBehaviour
     {
         Application.Quit();
     }
+    //123
 }
