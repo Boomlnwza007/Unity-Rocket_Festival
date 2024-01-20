@@ -8,6 +8,6 @@ public class ShowMoney : MonoBehaviour
 
     void Update()
     {
-        Text.text = "Coin : "+Player_core.Money+"/"+Player_core.Money_Max;
+        Text.text = ":"+Player_core.Money+"/"+Player_core.Money_Max;
     }
 }

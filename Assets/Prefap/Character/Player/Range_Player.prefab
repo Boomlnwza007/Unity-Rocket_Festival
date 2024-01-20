@@ -541,9 +541,9 @@ MonoBehaviour:
   Thisteam: 0
   Hp: 5
   Dmg: 2
-  CcDmg: 2
+  CcDmg: 1
   SpMove: 5
-  CcSpawn: 6
+  CcSpawn: 10
   Cost: 25
   rb: {fileID: 7299641292090730738}
   distanceAttack: 7

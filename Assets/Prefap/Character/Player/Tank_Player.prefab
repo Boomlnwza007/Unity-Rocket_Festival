@@ -1265,7 +1265,7 @@ MonoBehaviour:
   Dmg: 4
   CcDmg: 4
   SpMove: 5
-  CcSpawn: 7
+  CcSpawn: 15
   Cost: 120
   rb: {fileID: 795349899839084344}
   distanceAttack: 2.5

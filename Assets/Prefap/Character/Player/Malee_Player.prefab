@@ -715,8 +715,8 @@ MonoBehaviour:
   animetor: {fileID: 1569466415327824166}
   Type: 0
   Thisteam: 0
-  Hp: 2
-  Dmg: 2
+  Hp: 5
+  Dmg: 3
   CcDmg: 2
   SpMove: 5
   CcSpawn: 1.5

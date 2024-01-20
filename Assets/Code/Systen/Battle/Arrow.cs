@@ -32,7 +32,7 @@ public class Arrow : MonoBehaviour
 
         sampletime += Time.deltaTime*speed;
         transform.position = evaluate(sampletime);
-        transform.up = evaluate(sampletime + 0.001f) - transform.position;
+        transform.right = evaluate(sampletime + 0.001f) - transform.position;
         if (sampletime >= 1f)
         {
             Destroy(gameObject);
@@ -76,6 +76,14 @@ public class Arrow : MonoBehaviour
         if (collision.gameObject.tag == "Unit")
         {
             if (Thisteam!=collision.gameObject.GetComponent<ITeam>().CTeam())
+            {
+                collision.gameObject.GetComponent<IDamagable>().Damage(Dmg);
+                Destroy(gameObject);
+            }
+        }
+        if (collision.gameObject.tag == "Tower")
+        {
+            if (Thisteam != collision.gameObject.GetComponent<ITeam>().CTeam())
             {
                 collision.gameObject.GetComponent<IDamagable>().Damage(Dmg);
                 Destroy(gameObject);

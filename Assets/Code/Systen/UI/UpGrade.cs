@@ -17,7 +17,7 @@ public class UpGrade : MonoBehaviour
     {
         CoolDown.maxValue = CcUpGrade;
         CoolDown.value = CoolDown.maxValue;
-        TMP_Text.text = "UpGrade Coin" + "\n" + "Cost : " + Cost;
+        TMP_Text.text = ""+ Cost;
     }
 
     public void UpGradePlus()
