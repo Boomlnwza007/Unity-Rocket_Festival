@@ -7,12 +7,12 @@ public class ChangScen : MonoBehaviour
 {
     public void NextGame()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public void NextMenu()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(0);
     }
 
     public void EndGame()
