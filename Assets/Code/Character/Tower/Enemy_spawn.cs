@@ -22,15 +22,15 @@ public class Enemy_spawn : MonoBehaviour
         //}
         if (Spawn)
         {
-            if (dif<180)
+            if (dif<120)
             {
                 StartCoroutine(spawnST1());
             }
-            else if (dif > 180 || Player_core.LV > 4)
+            else if (dif > 120 )
             {
                 StartCoroutine(spawnST2());
             }
-            else if (dif > 360 || Player_core.LV > 5)
+            else if (dif > 300 )
             {
                 StartCoroutine(spawnST3());
             }

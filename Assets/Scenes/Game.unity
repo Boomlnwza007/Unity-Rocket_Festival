@@ -1640,8 +1640,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 809.12, y: -970.8}
-  m_SizeDelta: {x: 165.23, y: 145.86}
+  m_AnchoredPosition: {x: 818.8, y: -952.55}
+  m_SizeDelta: {x: 163.08, y: 109.38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &367516866
 MonoBehaviour:
@@ -1706,13 +1706,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 367516863}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1751,10 +1751,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Thisteam: 0
   TMP_Text: {fileID: 665517427}
-  Cost: 50
+  Cost: 1
   CoolDown: {fileID: 482276190}
   button: {fileID: 367516866}
-  CcUpRock: 60
+  CcUpRock: 1
   Rockget: {fileID: 3918508576171005637, guid: 46dc53be3ceda2f4e8516bd4723525ab, type: 3}
   FireStart_point1: {fileID: 291642965}
   Start_point: {fileID: 1400957128}
@@ -1870,8 +1870,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 8.220001, y: 18.220001}
-  m_SizeDelta: {x: -3.57, y: -36.44}
+  m_AnchoredPosition: {x: -0.000015258789, y: -0.0000076293945}
+  m_SizeDelta: {x: 0.000061035, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &482276190
 MonoBehaviour:
@@ -2606,7 +2606,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -40.9, y: -15.300003}
+  m_AnchoredPosition: {x: 0.000038146973, y: -0.0000076293945}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &665517427
@@ -2638,7 +2638,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
+    rgba: 4283865288
   m_fontColor: {r: 0.7843138, g: 0.59607846, b: 0.3372549, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -6341,7 +6341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TMP_Text: {fileID: 1226007616}
-  Cost: 1
+  Cost: 60
   CoolDown: {fileID: 1480320607}
   button: {fileID: 1891924571}
   CcUpGrade: 10

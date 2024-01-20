@@ -20,24 +20,29 @@ public class Arrow : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (Target == null)
         {
+            rb.velocity = transform.right * 10;
             return;
         }
-        control = new Vector3(center(start.x, Target.position.x), start.y +10, start.z);
+        control = new Vector3(center(start.x, Target.position.x), start.y + 10, start.z);
         transform.up = evaluate(sampletime + 0.001f) - transform.position;
 
-        sampletime += Time.deltaTime*speed;
+        sampletime += Time.deltaTime * speed;
         transform.position = evaluate(sampletime);
         transform.right = evaluate(sampletime + 0.001f) - transform.position;
         if (sampletime >= 1f)
         {
             Destroy(gameObject);
         }
-        
+
+    }
+        // Update is called once per frame
+        void Update()
+    {
+                
     }
 
     public Vector3 evaluate(float t)
@@ -89,5 +94,15 @@ public class Arrow : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+        if (collision.gameObject.name == "Land")
+        {
+
+            Destroy(gameObject);
+
+        }
+    }
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
     }
 }

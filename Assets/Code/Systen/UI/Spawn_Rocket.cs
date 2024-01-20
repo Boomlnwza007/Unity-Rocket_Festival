@@ -42,8 +42,6 @@ public class Spawn_Rocket : MonoBehaviour
     {
         CoolDown.value = CoolDown.maxValue;
         StartCoroutine(FireRockket());
-
-
     }
 
     IEnumerator FireRockket()
@@ -53,7 +51,7 @@ public class Spawn_Rocket : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
             Instantiate(Rockget, End_point.transform.position, Quaternion.identity);
         }
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(5f);
         Collider2D[] tar = Physics2D.OverlapBoxAll(Start_point.position, new Vector2(25, 4), Quaternion.identity.x);
         foreach (var item in tar)
         {

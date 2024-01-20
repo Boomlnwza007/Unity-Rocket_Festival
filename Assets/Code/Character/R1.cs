@@ -115,16 +115,16 @@ public class R1 : UnitBase , IDamagable , ITeam
 
     public void LineSet()
     {
-        RaycastHit2D[] Enemy = Physics2D.RaycastAll(ray.transform.position, dir, 2.5f);
+        RaycastHit2D[] Enemy = Physics2D.RaycastAll(ray.transform.position, dir, 2.8f);
         foreach (var item in Enemy)
         {
             if (item.collider != gameObject.GetComponent<Collider2D>())
             {
-                if (item.collider.tag == "Unit")
+                if (item.collider.gameObject.tag == "Unit")
                 {
                     Move = false;
                 }
-                else if (item.collider.tag == "Tower")
+                else if (item.collider.gameObject.tag == "Tower")
                 {
                     if (item.collider.GetComponent<Tower>().Thisteam != Thisteam)
                     {
@@ -162,10 +162,17 @@ public class R1 : UnitBase , IDamagable , ITeam
             //Debug.Log(G.collider.name);
             attack = true;
             animetor.SetBool("Attack", true);
-            yield return new WaitForSeconds(0.7f);            
-            Instantiate(arrow, pointArrow.position, Quaternion.identity);            
-            target = G.collider.gameObject;
+            yield return new WaitForSeconds(0.7f);
             animetor.SetBool("Attack", false);
+            if (!Move)
+            {
+                G.collider.GetComponent<IDamagable>().Damage(Dmg);
+            }
+            else
+            {
+                Instantiate(arrow, pointArrow.position, Quaternion.identity);
+                target = G.collider.gameObject;
+            }
             yield return new WaitForSeconds(CcDmg);            
             attack = false;
         }
@@ -182,7 +189,7 @@ public class R1 : UnitBase , IDamagable , ITeam
     {
         if (collision.gameObject.tag == "Arrow")
         {
-            if (Move)
+            if (!Move)
             {
                 collision.gameObject.GetComponent<Arrow>().SetTarget(target.transform);
             }
@@ -201,6 +208,7 @@ public class R1 : UnitBase , IDamagable , ITeam
         {
             isDead = true;
             gameObject.GetComponent<Collider2D>().isTrigger = true;
+            gameObject.GetComponent<Collider2D>().enabled = false;
             rb.gravityScale = 0;
             animetor.SetTrigger("Dead");
             if (Thisteam == Team.Enemy)
