@@ -176,7 +176,7 @@ public class E1 : UnitBase, IDamagable , ITeam
             isDead = true;
             gameObject.GetComponent<Collider2D>().isTrigger = true;
             gameObject.GetComponent<Collider2D>().enabled = false;
-
+            hpbar.Off();
             rb.gravityScale = 0;
             animetor.SetTrigger("Dead");
             if (Thisteam == Team.Enemy)

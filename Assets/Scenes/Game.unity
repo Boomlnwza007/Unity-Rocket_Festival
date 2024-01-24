@@ -1407,6 +1407,7 @@ GameObject:
   m_Component:
   - component: {fileID: 342788651}
   - component: {fileID: 342788652}
+  - component: {fileID: 342788653}
   m_Layer: 0
   m_Name: SpawmPoint
   m_TagString: Untagged
@@ -1423,7 +1424,7 @@ Transform:
   m_GameObject: {fileID: 342788650}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1, y: -4.91, z: 0}
+  m_LocalPosition: {x: -0.3, y: -8.48, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1436,7 +1437,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 342788650}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -1472,8 +1473,20 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.12, y: 5.91}
+  m_Size: {x: 2.86, y: 1.56}
   m_EdgeRadius: 0
+--- !u!114 &342788653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342788650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: debcf1d51f65f724b82770d2e9c0d5c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &343774762
 GameObject:
   m_ObjectHideFlags: 0
@@ -3306,7 +3319,6 @@ GameObject:
   m_Component:
   - component: {fileID: 857484252}
   - component: {fileID: 857484253}
-  - component: {fileID: 857484254}
   m_Layer: 0
   m_Name: SpawmPoint
   m_TagString: Untagged
@@ -3374,18 +3386,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.12, y: 5.91}
   m_EdgeRadius: 0
---- !u!114 &857484254
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 857484251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 379ef683e55d6d241a4978a8d1f3e0e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &923957616
 GameObject:
   m_ObjectHideFlags: 0
@@ -6465,7 +6465,7 @@ Transform:
   m_GameObject: {fileID: 1952877891}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -151.19995, y: -424.59, z: -4859.9995}
+  m_LocalPosition: {x: -218.1, y: -414.5, z: -4859.9995}
   m_LocalScale: {x: 23.045057, y: 23.045057, z: 23.045057}
   m_ConstrainProportionsScale: 0
   m_Children: []

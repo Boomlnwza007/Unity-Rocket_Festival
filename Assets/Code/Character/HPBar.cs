@@ -25,5 +25,9 @@ public class HPBar : MonoBehaviour
     {
         health = Hp;
     }
-    
+
+    public void Off()
+    {
+        gameObject.SetActive(false);
+    }
 }

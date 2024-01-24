@@ -12,7 +12,9 @@ public class Spawn_Mob : MonoBehaviour
     public GameObject Character;
     public Transform spawnP;
     public TMP_Text text;
-    private static Queue<GameObject> Q;
+    private static Queue<GameObject> Q = new Queue<GameObject>();
+    private static bool QuOpen = true;
+
 
     private void Awake()
     {
@@ -40,7 +42,7 @@ public class Spawn_Mob : MonoBehaviour
     private void Update()
     {
         ButtomOnOFf();
-        SpawnQ();
+        SpawnQS();
     }
 
     public void ButtomOnOFf()
@@ -58,26 +60,36 @@ public class Spawn_Mob : MonoBehaviour
 
     public void Spawn()
     {
-        Debug.Log(Cost+"  >  "+Player_core.Money);
         if (Cost<Player_core.Money)
         {
             CoolDown.value = CoolDown.maxValue;
-            //Q.Enqueue(Character);
-            Instantiate(Character, spawnP.position, spawnP.rotation);
+            Spawn_Mob.Q.Enqueue(Character);
+            //Instantiate(Character, spawnP.position, spawnP.rotation);
             Player_core.MinusMoney(Cost);        
         }
        
     }
 
-    public void SpawnQ()
+    public void SpawnQS()
     {
-        if (Q == null)
+        if (Spawn_Mob.Q.Count == 0)
         {
             return;
         }
-        if (!Check_LimitP.Limit)
+        StartCoroutine(SpawnQ());
+
+    }
+
+    IEnumerator SpawnQ()
+    {       
+        if (!Check_LimitP.Limit&& Spawn_Mob.QuOpen)
         {
-            Instantiate(Q.Peek(), spawnP.position, spawnP.rotation);
+            Spawn_Mob.QuOpen = false;         
+            Instantiate(Spawn_Mob.Q.Dequeue(), spawnP.transform.position, spawnP.rotation);
+            yield return new WaitForSeconds(0.2f);
+            Spawn_Mob.QuOpen = true;
+
         }
+
     }
 }
