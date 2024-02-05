@@ -6,7 +6,7 @@ public class Player_core : MonoBehaviour
 {
     public static int LV = 0;
     public static int Money = 20;
-    public static int Money_Max = 100;
+    public static int Money_Max = 60;
     public static float Cooldown = 0.2f;
     float Timer=0;
 

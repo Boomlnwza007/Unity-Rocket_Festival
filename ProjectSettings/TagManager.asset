@@ -47,12 +47,12 @@ TagManager:
   - name: Character
     uniqueID: 2129396717
     locked: 0
-  - name: UI
-    uniqueID: 2770146667
-    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
   - name: F
     uniqueID: 2221834887
+    locked: 0
+  - name: UI
+    uniqueID: 2770146667
     locked: 0

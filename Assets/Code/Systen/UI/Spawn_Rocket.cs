@@ -19,6 +19,8 @@ public class Spawn_Rocket : MonoBehaviour
     public Transform centermap_point;
     public static Transform End_point;   
     public static float distan;
+
+
     private void Awake()
     {
         CoolDown.maxValue = CcUpRock;
@@ -40,8 +42,10 @@ public class Spawn_Rocket : MonoBehaviour
 
     public void fire()
     {
+        CoolDown.maxValue = 60;
         CoolDown.value = CoolDown.maxValue;
         StartCoroutine(FireRockket());
+        Sound.playSound();
     }
 
     IEnumerator FireRockket()
@@ -50,19 +54,7 @@ public class Spawn_Rocket : MonoBehaviour
         {
             yield return new WaitForSeconds(0.2f);
             Instantiate(Rockget, End_point.transform.position, Quaternion.identity);
-        }
-        yield return new WaitForSeconds(5f);
-        Collider2D[] tar = Physics2D.OverlapBoxAll(Start_point.position, new Vector2(25, 4), Quaternion.identity.x);
-        foreach (var item in tar)
-        {
-            if (item.gameObject.tag == "Unit")
-            {
-                if (Thisteam != item.GetComponent<ITeam>().CTeam())
-                {
-                    item.GetComponent<IDamagable>().Damage(100);
-                }
-            }
-        }
+        }     
 
     }
 

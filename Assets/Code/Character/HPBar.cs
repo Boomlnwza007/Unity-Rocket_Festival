@@ -7,6 +7,7 @@ public class HPBar : MonoBehaviour
 {
     public Slider slider;
     private float health;
+    public GameObject HpTop;
     private void Update()
     {
         if (slider.value != health)
@@ -28,6 +29,6 @@ public class HPBar : MonoBehaviour
 
     public void Off()
     {
-        gameObject.SetActive(false);
+        HpTop.SetActive(false);
     }
 }

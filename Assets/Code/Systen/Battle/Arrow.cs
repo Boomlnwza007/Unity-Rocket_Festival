@@ -12,12 +12,23 @@ public class Arrow : MonoBehaviour
     public float speed;
     public Team Thisteam;
     public float Dmg;
+    private bool del = false;
     // Start is called before the first frame update
     void Start()
     {
         sampletime = 0f;
         start = transform.position;        
 
+    }
+    private void Update()
+    {
+        if (del)
+        {
+            if (Target = null)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 
     void FixedUpdate()
@@ -33,16 +44,7 @@ public class Arrow : MonoBehaviour
         sampletime += Time.deltaTime * speed;
         transform.position = evaluate(sampletime);
         transform.right = evaluate(sampletime + 0.001f) - transform.position;
-        if (sampletime >= 1f)
-        {
-            Destroy(gameObject);
-        }
 
-    }
-        // Update is called once per frame
-        void Update()
-    {
-                
     }
 
     public Vector3 evaluate(float t)
@@ -101,6 +103,14 @@ public class Arrow : MonoBehaviour
 
         }
     }
+
+    IEnumerable Cooldown()
+    {
+        yield return new WaitForSeconds(0.2f);
+        del = true;
+
+    }
+
     private void OnBecameInvisible()
     {
         Destroy(gameObject);

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tower : TowerBase , IDamagable
+public class Tower : TowerBase , IDamagable ,ITeam
 {
     public HPBar HpBar;
 
@@ -20,5 +20,10 @@ public class Tower : TowerBase , IDamagable
     void Update()
     {
         
+    }
+
+    public Team CTeam()
+    {
+        return Thisteam;
     }
 }

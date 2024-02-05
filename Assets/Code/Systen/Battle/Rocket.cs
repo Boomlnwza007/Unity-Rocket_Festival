@@ -8,6 +8,7 @@ public class Rocket : MonoBehaviour
     public Team Thisteam;
     public Vector3 target;
     private bool startAim = false;
+    public GameObject Expo;
     private void Start()
     {
         target = Spawn_Rocket.End_point.position;
@@ -49,17 +50,16 @@ public class Rocket : MonoBehaviour
         if (collision.gameObject.name == "Land")
         {
 
-                Destroy(gameObject);
+            Destroy(gameObject);
+            Instantiate(Expo,gameObject.transform.position,Quaternion.identity);
             
         }
         if (collision.gameObject.tag == "Unit")
         {
             if (collision.gameObject.GetComponent<ITeam>().CTeam()!=Thisteam)
             {
-                collision.gameObject.GetComponent<IDamagable>().Damage(100);
-                Destroy(gameObject);
-            }
-            
+                collision.gameObject.GetComponent<IDamagable>().Damage(100);                
+            }           
 
         }
     }

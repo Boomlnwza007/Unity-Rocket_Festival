@@ -12,25 +12,29 @@ public class UpGrade : MonoBehaviour
     public Slider CoolDown;
     [SerializeField] Button button;
     public float CcUpGrade = 10;
+    private int Level = 0;
+
 
     private void Awake()
     {
         CoolDown.maxValue = CcUpGrade;
         CoolDown.value = CoolDown.maxValue;
-        TMP_Text.text = ""+ Cost;
+        TMP_Text.text = Cost + " LV. " + Level;
     }
 
     public void UpGradePlus()
     {
-        if (Cost < Player_core.Money)
+        if (Cost <= Player_core.Money)
         {
+            Sound.playSound();
             Player_core.MinusMoney(Cost);           
             Player_core.upgrade();
+            Level++;
             CoolDown.maxValue *= 1.5f;
             CoolDown.value = CoolDown.maxValue;            
             Cost += 15;
             CcUpGrade *= 1.5f;
-            TMP_Text.text = "UpGrade Coin" + "\n" + "Cost : " + Cost;
+            TMP_Text.text = Cost + " LV. "+ Level;
         }
         
     }

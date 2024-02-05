@@ -13,6 +13,7 @@ public class E1 : UnitBase, IDamagable , ITeam
     public HPBar hpbar;
     [SerializeField]private Transform ray;
     bool isDead = false;
+    public SpriteRenderer[] body;
 
     private void Awake()
     {
@@ -167,6 +168,22 @@ public class E1 : UnitBase, IDamagable , ITeam
     {
         Hp -= damage;
         hpbar.SetHp(Hp);
+        StartCoroutine(reactDamage());
+        
+    }
+     
+    IEnumerator reactDamage()
+    {
+        foreach (var item in body)
+        {
+            item.color = Color.red;                
+        }
+        yield return new WaitForSeconds(0.1f);
+        foreach (var item in body)
+        {
+            item.color = Color.white;
+        }
+
     }
 
     public void Dead()
@@ -174,10 +191,10 @@ public class E1 : UnitBase, IDamagable , ITeam
         if (Hp <= 0)
         {
             isDead = true;
+            rb.gravityScale = 0;
             gameObject.GetComponent<Collider2D>().isTrigger = true;
             gameObject.GetComponent<Collider2D>().enabled = false;
-            hpbar.Off();
-            rb.gravityScale = 0;
+            hpbar.Off();            
             animetor.SetTrigger("Dead");
             if (Thisteam == Team.Enemy)
             {

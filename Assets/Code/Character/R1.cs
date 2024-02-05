@@ -10,12 +10,15 @@ public class R1 : UnitBase , IDamagable , ITeam
     [SerializeField] private bool attacking = false;
     private bool attack = false;
     [SerializeField] private bool Move = true;
+    [SerializeField] private bool Melee = true;
     public HPBar hpbar;
     [SerializeField] private GameObject arrow;
     [SerializeField] private Transform pointArrow;
     private GameObject target;
     [SerializeField] private Transform ray;
     bool isDead = false;
+    public SpriteRenderer[] body;
+
 
 
     private void Awake()
@@ -123,6 +126,14 @@ public class R1 : UnitBase , IDamagable , ITeam
                 if (item.collider.gameObject.tag == "Unit")
                 {
                     Move = false;
+                    if (Thisteam != item.collider.GetComponent<ITeam>().CTeam())
+                    {
+                        Melee = false;
+                    }
+                    else
+                    {
+                        Melee = true;
+                    }
                 }
                 else if (item.collider.gameObject.tag == "Tower")
                 {
@@ -140,6 +151,7 @@ public class R1 : UnitBase , IDamagable , ITeam
             else if (item.collider == null)
             {
                 Move = true;
+                Melee = true;
             }
             else
             {
@@ -164,14 +176,18 @@ public class R1 : UnitBase , IDamagable , ITeam
             animetor.SetBool("Attack", true);
             yield return new WaitForSeconds(0.7f);
             animetor.SetBool("Attack", false);
-            if (!Move)
+            if (!Melee)
             {
+                Debug.Log("1");
                 G.collider.GetComponent<IDamagable>().Damage(Dmg);
             }
             else
             {
+                Debug.Log("2");
+
                 Instantiate(arrow, pointArrow.position, Quaternion.identity);
                 target = G.collider.gameObject;
+                Debug.Log("3");
             }
             yield return new WaitForSeconds(CcDmg);            
             attack = false;
@@ -183,13 +199,28 @@ public class R1 : UnitBase , IDamagable , ITeam
     {
         Hp -= damage;
         hpbar.SetHp(Hp);
+        StartCoroutine(reactDamage());
+    }
+
+    IEnumerator reactDamage()
+    {
+        foreach (var item in body)
+        {
+            item.color = Color.red;
+        }
+        yield return new WaitForSeconds(0.1f);
+        foreach (var item in body)
+        {
+            item.color = Color.white;
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Arrow")
         {
-            if (!Move)
+            if (!Melee)
             {
                 collision.gameObject.GetComponent<Arrow>().SetTarget(target.transform);
             }
@@ -207,10 +238,10 @@ public class R1 : UnitBase , IDamagable , ITeam
         if (Hp <= 0)
         {
             isDead = true;
+            rb.gravityScale = 0;
             gameObject.GetComponent<Collider2D>().isTrigger = true;
             gameObject.GetComponent<Collider2D>().enabled = false;
-            hpbar.Off();
-            rb.gravityScale = 0;
+            hpbar.Off();            
             animetor.SetTrigger("Dead");
             if (Thisteam == Team.Enemy)
             {
@@ -247,7 +278,7 @@ public class R1 : UnitBase , IDamagable , ITeam
             animetor.SetBool("Walk", false);
         }
 
-        if (Move)
+        if (Melee)
         {
             animetor.SetBool("Melee", false);
         }

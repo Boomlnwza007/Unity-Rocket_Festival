@@ -65,7 +65,8 @@ public class Spawn_Mob : MonoBehaviour
             CoolDown.value = CoolDown.maxValue;
             Spawn_Mob.Q.Enqueue(Character);
             //Instantiate(Character, spawnP.position, spawnP.rotation);
-            Player_core.MinusMoney(Cost);        
+            Player_core.MinusMoney(Cost);
+            Sound.playSound();
         }
        
     }
@@ -88,7 +89,6 @@ public class Spawn_Mob : MonoBehaviour
             Instantiate(Spawn_Mob.Q.Dequeue(), spawnP.transform.position, spawnP.rotation);
             yield return new WaitForSeconds(0.2f);
             Spawn_Mob.QuOpen = true;
-
         }
 
     }
