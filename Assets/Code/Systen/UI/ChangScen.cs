@@ -13,24 +13,24 @@ public class ChangScen : MonoBehaviour
     }
     public void NextGame()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(1);
         audioSource.PlayOneShot(sound);
-        Time.timeScale = 1;
     }
 
     public void NextMenu()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(0);
         audioSource.PlayOneShot(sound);
-        Time.timeScale = 1;
 
     }
 
     public void EndGame()
     {
+        Time.timeScale = 1;
         Application.Quit();
         audioSource.PlayOneShot(sound);
-        Time.timeScale = 1;
 
     }
     //123

@@ -60,7 +60,7 @@ public class Spawn_Mob : MonoBehaviour
 
     public void Spawn()
     {
-        if (Cost<Player_core.Money)
+        if (Cost<=Player_core.Money)
         {
             CoolDown.value = CoolDown.maxValue;
             Spawn_Mob.Q.Enqueue(Character);

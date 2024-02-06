@@ -14,7 +14,6 @@ public class Enemy_spawn : MonoBehaviour
     private int spawnCMax = 0;
     //private bool Demo = true;
     [SerializeField]private float dif = 0;
-    private int LV=0;
 
     private void Start()
     {
@@ -29,7 +28,7 @@ public class Enemy_spawn : MonoBehaviour
         if (spawnC >= spawnCMax)
         {
             SpawnCC = false;
-            StartCoroutine(CoolDown(8-LV));           
+            StartCoroutine(CoolDown(8));           
         }
         if (SpawnCC)
         {
@@ -41,7 +40,6 @@ public class Enemy_spawn : MonoBehaviour
                 }
                 else if (dif > 60)
                 {
-                    LV = 2;
                     StartCoroutine(spawnST2());
                 }
                 else if (dif > 150)
@@ -91,7 +89,7 @@ public class Enemy_spawn : MonoBehaviour
                 spawnC++;
             }
         }
-        else if (b <= 80)
+        else if (b <= 95)
         {
             a = Random.Range(4, 6);
             if (!Check_Limit.LimitE)
@@ -119,7 +117,7 @@ public class Enemy_spawn : MonoBehaviour
         Spawn = false;
         float a = Random.Range(3, 4);
         int b = Random.Range(0, 100);
-        if (b <= 30)
+        if (b <= 55)
         {
             if (!Check_Limit.LimitE)
             {
@@ -128,7 +126,7 @@ public class Enemy_spawn : MonoBehaviour
                 spawnC++;
             }
         }
-        else if (b <= 50)
+        else if (b <= 90)
         {
             a = Random.Range(3, 5);
             if (!Check_Limit.LimitE)
